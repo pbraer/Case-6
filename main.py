@@ -9,3 +9,6 @@ print("""Case-study Тесселяция
 
 """)
 
+import turtle as t
+t.setup(500, 500)
+t.speed(99999999)
