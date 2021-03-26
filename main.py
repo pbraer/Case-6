@@ -23,6 +23,9 @@ def get_num_hexagons():
         except ValueError:
             print('Оно должно быть от 4 до 20. Пожалуйста, повторите попытку: ', sep='', end='')
             n = 0
+num = get_num_hexagons()
+d = 500/(num+1.5)
+side_len = (d*d/3)**(0.5)
 
 
 
