@@ -33,6 +33,10 @@ print('''Допустимые цвета заливки:
     пурпурный
     розовый''')
 
+
+color_1 = get_color_choice()
+color_2 = get_color_choice()
+
 num = get_num_hexagons()
 d = 500/(num+1.5)
 side_len = (d*d/3)**(0.5)
