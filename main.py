@@ -9,10 +9,6 @@ print("""Case-study Тесселяция
 
 """)
 
-import turtle as t
-t.setup(500, 500)
-t.speed(99999999)
-
 def draw_hexagon(x, y, side_len, color):
     t.up()
     t.fillcolor(color)
@@ -64,3 +60,60 @@ def get_color_choice():
         else:
             print("'", color, "' не является верным значением. Пожалуйста, повторите попытку: ", sep='', end='')
             color = ''
+
+def get_num_hexagons():
+    n = 0
+    print('Пожалуйста, введите количество шестиугольников, располагаемых в ряд: ',  sep='', end='')
+    while n < 4:
+        try:
+            n = int(input())
+            if n >= 4:
+                return n
+            else:
+                print('Оно должно быть от 4 до 20. Пожалуйста, повторите попытку: ', sep='', end ='')
+                n = 0
+        except ValueError:
+            print('Оно должно быть от 4 до 20. Пожалуйста, повторите попытку: ', sep='', end ='')
+            n = 0
+
+print('''Допустимые цвета заливки:
+    красный
+    синий
+    зеленый
+    желтый
+    оранжевый
+    пурпурный
+    розовый''')
+
+color_1 = get_color_choice()
+color_2 = get_color_choice()
+
+num = get_num_hexagons()
+d = 500/(num+1.5)
+side_len = (d*d/3)**(0.5)
+
+d_y = 1.5*side_len
+d_x = d*0.5
+n_y = round((500/(2*d + side_len))*2)
+
+import turtle as t
+t.setup(500, 500)
+t.speed(99999999)
+
+color_n = 1
+for f in range(1, num+1):
+    if f % 2 == 1:
+        indent = 2*d_x
+    else:
+        indent = d_x
+    for s in range(1, num+1):
+        if color_n % 2 == 1:
+            color = '' + color_1 + ''
+        else:
+            color = '' + color_2 + ''
+        draw_hexagon(-250+indent+d*(s-1), 250-d_y*0.5-d_y*f, side_len, color)
+        color_n = color_n + 1
+    if f % 2 == 0:
+        color_n = color_n + 1
+
+t.done()
