@@ -1,5 +1,5 @@
 # Case-study #6
-# Developers:   Braer P. (%),
+# Developers:   Braer P. (70%),
 #               Kokorina D. (%),
 #               Novoselov V. (%)
 
